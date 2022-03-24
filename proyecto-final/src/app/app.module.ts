@@ -10,6 +10,7 @@ import { ContentComponent } from './components/content/content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from './material/material.module';
+import { ClasesComponent } from './components/content/clases/clases.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MaterialModule } from './material/material.module';
     AppComponent,
     ToolbarComponent,
     NavbarComponent,
-    ContentComponent,	
+    ContentComponent,
+    ClasesComponent,	
   ],
   imports: [
     BrowserModule,

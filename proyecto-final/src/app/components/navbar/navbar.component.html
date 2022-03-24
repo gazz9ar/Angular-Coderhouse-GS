@@ -1,0 +1,21 @@
+<!-- <ul class="navbar-list">
+	<li class="navbar-item "><a>Inicio</a> </li>
+	<li><a>Clases</a> </li>
+	<li><a>Guias</a></li>
+</ul> -->
+<mat-drawer-container class="example-container w-100 h-100 bg-elden-wiki" autosize>
+	<mat-drawer #drawer class="example-sidenav bg-elden-wiki " mode="side">
+		<mat-selection-list #shoes [multiple]="false">
+			<mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" class="text-white">
+			  {{shoe}}
+			</mat-list-option>
+		  </mat-selection-list>
+	</mat-drawer>
+  
+	<div class="example-sidenav-content h-100 border-left-wiki">
+	  <button type="button" mat-button (click)="drawer.toggle()" class="h-100">
+		<mat-icon class="text-white ">compare_arrows</mat-icon>
+	  </button>
+	</div>
+  
+</mat-drawer-container>
