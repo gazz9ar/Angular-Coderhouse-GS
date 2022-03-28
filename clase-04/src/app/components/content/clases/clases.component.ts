@@ -22,6 +22,7 @@ export class ClasesComponent implements OnInit {
 			  voluptate temporibus asperiores nostrum saepe! Autem itaque totam optio a, molestias ipsum provident
 			  iste sequi enim fuga!`,
 			  seleccionado:false,
+			  like:false,
 		  },
 		  {
 			id:2,
@@ -32,6 +33,7 @@ export class ClasesComponent implements OnInit {
 			voluptate temporibus asperiores nostrum saepe! Autem itaque totam optio a, molestias ipsum provident
 			iste sequi enim fuga!`,
 			seleccionado:false,
+			like:false,
 		}
 	  )
   }
@@ -41,6 +43,17 @@ export class ClasesComponent implements OnInit {
   seleccionar(event:any) {
 	event = true;
   }
-  
+  likeClass = (idClase:number) => {
+
+	for (const clase of this.clases) {
+		if (clase.id == idClase) {
+			if (clase.like) {
+				clase.like = false;
+			} else {
+				clase.like = true;
+			}		
+		}
+	}
+  }  
 
 }

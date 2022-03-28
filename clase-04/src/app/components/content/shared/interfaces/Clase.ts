@@ -5,5 +5,6 @@ export interface Clase {
 	attributeBased:string,
 	img:string,
 	description:string,
-	seleccionado:boolean
+	seleccionado:boolean,
+	like:boolean
 }

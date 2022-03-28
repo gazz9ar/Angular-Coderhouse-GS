@@ -1,0 +1,22 @@
+.class-card
+{
+	width: 30%;
+	&:hover
+	{
+		border: 1px solid #999181;
+		cursor: pointer;
+	}
+}
+.class-card-wrapper
+{
+	width: 100%;
+	
+}
+.seleccionado
+{
+	border: 1px solid #999181;
+}
+.liked 
+{
+	display: none;
+}
