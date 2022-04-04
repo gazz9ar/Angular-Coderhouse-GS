@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.bg-dark
+{
+	background-color: #303030 !important;
+}
+.bg-light
+{
+	background-color: #424242 !important;
+}
+.bg-dark
+{
+	background-color: #303030 !important;
+}
+.bg-primary
+{
+	background-color: #E91E63 !important;
+}
+.bg-accent
+{
+	background-color: #607D8B !important;
+}
+.bg-warn
+{
+	background-color: #F34336 !important;
+}

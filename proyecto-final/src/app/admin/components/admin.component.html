@@ -1,1 +1,74 @@
-<p>admin works!</p>
+<div class="d-flex">
+	<app-sidenav class="sidenav"></app-sidenav>
+
+	<!--  CONTENT  -->
+	<div class="container content-wrapper bg-dark m-0">
+		<mat-card class="content">
+			<div class="title-wrapper d-flex flex-column justify-content-center align-items-center">
+				<h1 class="mb-0">{{title}}</h1>
+				<div id="add-icon-wrapper">
+					<mat-icon aria-hidden="false" aria-label="Icono alumno" class="add-alumno-icon">person_add</mat-icon>
+				</div>
+				
+			</div>
+			
+
+			<form [formGroup]="formAlumno" (ngSubmit)="crearAlumno()">
+
+				<div class="row mb-4">
+					<div class="col-6 d-flex justify-content-center">
+						<div class="d-flex flex-column w-75" >
+							<mat-form-field  appearance="fill">
+								<mat-label>Nombre:</mat-label>
+								<input matInput placeholder="Ingrese el nombre..." formControlName="nombre" class="margin-errors-inputs">
+								<span *ngIf="errorNombre" class="text-danger pt-2">* Ingrese un mínimo de 4 caracteres</span>
+							</mat-form-field>
+							
+						</div>
+						
+					</div>
+					<div class="col-6 d-flex justify-content-center">
+						<mat-form-field class="w-75" appearance="fill">
+							<mat-label>Apellido:</mat-label>
+							<input matInput placeholder="Ingrese el apellido..." formControlName="apellido">
+						</mat-form-field>
+					</div>
+				</div>
+				
+				<div class="row mb-4" >
+					<div class="col-6 d-flex justify-content-center">								
+						<mat-form-field appearance="fill" class="w-75">
+							<mat-label>Fecha de nacimiento</mat-label>
+							<input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+					</div>
+					<div class="col-6 d-flex justify-content-center">
+						<mat-form-field class="w-75" appearance="fill">
+							<mat-label>Email:</mat-label>
+							<input matInput placeholder="Ingrese el correo..." formControlName="email" class="margin-errors-inputs">
+							<span *ngIf="errorEmail" class="text-danger pt-1">* El formato es incorrecto</span>
+						</mat-form-field>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="btn-guardar-wrapper d-flex justify-content-center">
+							<button mat-stroked-button color="primary" class="w-50" type="submit" [disabled]="disabledSubmit">Guardar</button>
+						</div>
+					</div>
+				</div>
+
+			
+
+
+		
+
+			</form>
+		</mat-card>
+	</div>
+	
+</div>
+ 
