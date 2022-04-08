@@ -7,6 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
 
 
 let mm = [
@@ -16,7 +17,8 @@ let mm = [
 	MatCardModule,
 	MatInputModule,
 	MatDatepickerModule,	
-	MatNativeDateModule
+	MatNativeDateModule,
+	MatTableModule
 ]
 @NgModule({
   declarations: [],
