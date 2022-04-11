@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/cor
 import { MatTable } from '@angular/material/table';
 import { AlumnosService } from '../../services/alumnos.service';
 import { Alumno } from '../../shared/models/Alumno';
+import Swal from 'sweetalert2';
 
 
 
@@ -42,6 +43,14 @@ export class AlumnosComponent implements OnInit {
   deleteAlumno(idAlumno:number) {
 
 		this.alumnosService.deleteAlumno(idAlumno);
+
+		this.alumnos = this.alumnosService.getAlumnos();
+
+		Swal.fire(
+			'Exito!',
+			`Se ha eliminado el alumno!`,
+			'success'
+		  )
   }
 
 

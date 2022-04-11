@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Alumno } from '../../../shared/models/Alumno';
 import { AlumnosService } from '../../../services/alumnos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-alumno',
@@ -59,8 +60,20 @@ export class AddAlumnoComponent implements OnInit {
 	this.alumno.fechaNacimiento = this.formAlumno.get('fechaNacimiento')?.value;
 	this.alumno.email = this.formAlumno.get('email')?.value;
 
-
-	console.log(this.alumnosService.createUpdateAlumno(this.alumno));
+	if (this.alumno.id === 0) {
+		Swal.fire(
+			'Buen trabajo!',
+			'Se ha creado el nuevo alumno!',
+			'success'
+		  )
+	} else {
+		Swal.fire(
+			'Buen trabajo!',
+			`Se ha actualizado el alumno ${this.alumno.nombre + ' ' + this.alumno.apellido} el nuevo alumno!`,
+			'success'
+		  )
+	}
+	this.alumnosService.createUpdateAlumno(this.alumno);
  } 
 
 }

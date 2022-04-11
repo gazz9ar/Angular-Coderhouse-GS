@@ -53,11 +53,11 @@ export class AlumnosService {
 	return this.alumnos;
   }
 
-  deleteAlumno(id:number):Alumno[] {
-	  this.alumnos = this.alumnos.filter( alu => {
-		  alu.id !== id;
-	  })
-	  return this.alumnos;
+  deleteAlumno(id:number):void {
+	 
+	  this.alumnos = this.alumnos.filter(cli => cli.id !== id);	
+
+	//   return this.alumnos;
   }
 
 
