@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Alumno } from '../shared/models/Alumno';
 
 
 @Component({
@@ -9,13 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
 
   createEdit:boolean = false;
+  alumno!:Alumno;
   constructor() { 
 	  
   }
-
  
   ngOnInit(): void {
   }
+  recibirAlumno(alumno:Alumno) {
+	this.createEdit = true;
+	this.alumno = alumno;
+  }
+
+  redirigir() {
+	
+	this.createEdit = false;		
+	
+  }
+
 
   
 

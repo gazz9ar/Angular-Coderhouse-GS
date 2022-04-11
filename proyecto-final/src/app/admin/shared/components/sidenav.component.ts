@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,7 +9,11 @@ export class SidenavComponent implements OnInit {
 
   constructor() { }
 
+  @Output() redirigirOutput = new EventEmitter<any>();
   ngOnInit(): void {
+  }
+  redirigirAlumnos() {
+	this.redirigirOutput.emit();
   }
 
 }

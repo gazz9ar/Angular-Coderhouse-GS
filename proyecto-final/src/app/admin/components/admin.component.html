@@ -1,12 +1,14 @@
 <div class="d-flex">
-	<app-sidenav class="sidenav"></app-sidenav>
+	<app-sidenav class="sidenav"  (redirigirOutput)="redirigir()"></app-sidenav>
 
 	<!--  CONTENT  -->
 	<div class="container content-wrapper bg-dark m-0">
 		<mat-card class="content">
 			
-		  <app-alumnos *ngIf="!createEdit"></app-alumnos>
-		  <app-alumnos *ngIf="createEdit"></app-alumnos>
+		  <app-alumnos *ngIf="!createEdit"
+		   (alumnoEnviarOutput)="recibirAlumno($event)" 
+		  ></app-alumnos>
+		  <app-add-alumno *ngIf="createEdit" [alumno]="alumno" ></app-add-alumno>
 
 		</mat-card>
 	</div>

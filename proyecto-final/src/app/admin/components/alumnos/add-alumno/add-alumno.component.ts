@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Alumno } from '../../../shared/models/Alumno';
+import { AlumnosService } from '../../../services/alumnos.service';
 
 @Component({
   selector: 'app-add-alumno',
@@ -11,17 +13,29 @@ export class AddAlumnoComponent implements OnInit {
 	disabledSubmit:boolean = false;
 	errorNombre:boolean = false;
 	errorEmail:boolean = false;
+	@Input() alumno!:Alumno;
 	formAlumno = new FormGroup({
 	  nombre: new FormControl('',[Validators.required,Validators.minLength(4)]),
 	  apellido: new FormControl('',[Validators.required,Validators.minLength(4)]),
 	  fechaNacimiento: new FormControl('',[Validators.required]),
 	  email: new FormControl('',[Validators.required,Validators.email]),	
 	});
-  constructor() {
+
+	
+
+  constructor(private alumnosService:AlumnosService) {
 	this.watchErrors();
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void {	   
+
+	this.formAlumno.get('nombre')?.setValue(this.alumno.nombre);
+	this.formAlumno.get('apellido')?.setValue(this.alumno.apellido);
+	this.formAlumno.get('fechaNacimiento')?.setValue(new Date(this.alumno.fechaNacimiento));
+	this.formAlumno.get('email')?.setValue(this.alumno.email);
+
+	
+	
   }
   watchErrors() {
 	this.formAlumno.get('nombre')?.valueChanges.subscribe((resp) => {
@@ -40,7 +54,13 @@ export class AddAlumnoComponent implements OnInit {
 	}
 
 	// guardar alumno...
-	 console.warn('falta código!!')
- }
+	this.alumno.nombre = this.formAlumno.get('nombre')?.value;
+	this.alumno.apellido = this.formAlumno.get('apellido')?.value;
+	this.alumno.fechaNacimiento = this.formAlumno.get('fechaNacimiento')?.value;
+	this.alumno.email = this.formAlumno.get('email')?.value;
+
+
+	console.log(this.alumnosService.createUpdateAlumno(this.alumno));
+ } 
 
 }

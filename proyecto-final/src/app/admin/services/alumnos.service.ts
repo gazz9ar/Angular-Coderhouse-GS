@@ -44,13 +44,12 @@ export class AlumnosService {
 		this.alumnos.push(alumno);
 		
 	} else {
-		// update
-		this.alumnos.find(alu => {
-			alu.id == alumno.id
-			// editar en el array....
-		})
+		
+		this.alumnos = this.alumnos.map(obj =>
+			obj.id === alumno.id ? { ...obj, completed: true } : obj
+		);		
+		
 	}
-
 	return this.alumnos;
   }
 
